@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu cantinho dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="travado"> <div class="hero">
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    <span class="estrela-redonda"></span>
+    
+    <span class="estrela star-1"></span>
+    <span class="estrela star-2"></span>
+    <span class="estrela star-3"></span>
+    <span class="estrela star-4"></span>
+    <span class="estrela star-5"></span>
+    <span class="estrela star-6"></span>
+    <span class="estrela star-7"></span>
+    <span class="estrela star-8"></span>
+
+    <img src="assets/img/eufofinha.jpg" class="avatar" alt="Minha foto">
+    
+    <h1 class="nome">Seja bem-vindo(a) ao meu portfólio</h1>
+    
+    <button class="btn" id="btn-iniciar">Iniciar</button>
+
+    <img src="assets/img/nuvem-maior.png" class="nuvem n1">
+    <img src="assets/img/gatinfofo.png" class="cat">
+
+  </div> 
+
+<div id="tela-loading" class="loading-overlay">
+  <div class="loading-box">
+    <img src="assets/img/gatinfofo.png" class="loading-cat" alt="Gatinho carregando">
+    <p class="txt-loading">Iniciando Mariana_OS...</p>
+    <div class="barra-progresso">
+      <div class="preenchimento"></div>
+    </div>
+  </div>
+</div>
+
+  <section id="meu-portfolio" class="secao-portfolio">
+  
+  <div class="barra-sistema">
+  <div class="barra-esquerda">
+    <span class="bolinha-azul"></span>
+    <span class="titulo-sistema">Mariana_OS_v1.0</span>
+  </div>
+  
+  <div class="barra-direita">
+    <div class="volume-container">
+      <span id="icone-volume">🔊</span>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.4">
+    </div>
+
+    <div class="hora-sistema" id="relogio-topo">00:00</div>
+
+    <button class="btn-fechar-sistema" onclick="voltarAoInicio()" title="Voltar ao início">x</button>
+  </div>
+</div>
+
+  <div class="espaco-estelar">
+    <span class="star-micro m1"></span>
+    <span class="star-micro m2"></span>
+    <span class="star-micro m3"></span>
+    
+    <span class="star-tri t1"></span>
+    <span class="star-tri t2"></span>
+    <span class="star-tri t3"></span>
+  </div>
+
+ <div class="area-desktop">
+ 
+  <div class="item-desktop" 
+       onclick="abrirJanela('janela-sobre-mim')"
+       data-janela="janela-sobre-mim">
+    <img src="assets/img/sobre-mim.png" class="icone-sticker" alt="Sobre Mim">
+    <span class="nome-icone">sobre mim</span>
+  </div>
+
+  <div class="item-desktop" 
+       onclick="abrirJanela('janela-projetos')"
+       data-janela="janela-projetos">
+    <img src="assets/img/meus-projetos.png" class="icone-sticker" alt="Projetos">
+    <span class="nome-icone">meus projetos</span>
+  </div>
+
+  <div class="item-desktop" 
+       onclick="abrirJanela('janela-contato')"
+       data-janela="janela-contato">
+    <img src="assets/img/contato.png" class="icone-sticker" alt="Contato">
+    <span class="nome-icone">contato</span>
+  </div>
+
+  <!-- LINKS EXTERNOS (não mudam) -->
+ <div class="item-desktop" onclick="window.open('https://github.com/MARIMON158', '_blank')">
+    <img src="assets/img/meu-github.png" class="icone-sticker" alt="meu-github">
+    <span class="nome-icone">meu github</span>
+</div>
+
+  <div class="item-desktop" onclick="window.open('//www.linkedin.com/in/dev-mari-goncalves/', '_blank')">
+    <img src="assets/img/linkedin.png" class="icone-sticker" alt="Linkedin">
+    <span class="nome-icone">linkedin</span>
+</div>
+
+  <div class="item-desktop" 
+       onclick="abrirJanela('janela-curriculo')"
+       data-janela="janela-curriculo">
+    <img src="assets/img/curriculo.png" class="icone-sticker" alt="curriculo">
+    <span class="nome-icone">currículo</span>
+  </div>
+
+  <div class="item-desktop" 
+       onclick="abrirJanela('janela-tecnologias')"
+       data-janela="janela-tecnologias">
+    <img src="assets/img/tecnologias.png" class="icone-sticker" alt="tecnologias">
+    <span class="nome-icone">tecnologias</span>
+  </div>
+
+</div>
+ </div>
+
+  <div class="conteudo-central">
+    
+  </div>
+
+ </section>
+  <script src="js/script.js"></script>
+
+
+  <audio id="musica-fundo" loop>
+  <source src="assets/audio/musica-fofa.mp3" type="audio/mpeg">
+ </audio>
+
+ <div id="janela-sobre-mim" class="janela">
+    <div class="barra">
+        <span>Sobre mim</span>
+        <div class="botoes">
+            <button onclick="minimizarJanela('janela-sobre-mim')">—</button>
+            <button onclick="maximizarJanela('janela-sobre-mim')">⬜</button>
+            <button onclick="fecharJanela('janela-sobre-mim')">✕</button>
+        </div>
+    </div>
+    <div class="conteudo">
+        <p>Sou desenvolvedora júnior em início de carreira, com foco em evoluir constantemente na área de tecnologia. Tenho conhecimentos em HTML, CSS e JavaScript no desenvolvimento frontend, além de Python e Node.js, n8n e APIS, sempre buscando aplicar a prática nos meus projetos.
+
+Participei do desenvolvimento do projeto voluntário “Ativamente”, uma iniciativa voltada ao apoio de jovens e crianças, onde atuei em equipe transformando ideias em soluções digitais.
+
+Sou curiosa, gosto de aprender na prática e estou em busca de uma oportunidade como desenvolvedora, para crescer profissionalmente e contribuir com projetos reais.</p>
+    </div>
+</div> <div id="janela-projetos" class="janela">
+    <div class="barra">
+        <span>Projetos</span>
+        <div class="botoes">
+            <button onclick="minimizarJanela('janela-projetos')">—</button>
+            <button onclick="maximizarJanela('janela-projetos')">⬜</button>
+            <button onclick="fecharJanela('janela-projetos')">✕</button>
+        </div>
+    </div>
+    <div class="conteudo">
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumb-container">
+                    <img src="assets/img/Desafio-cambio.png" class="project-thumb">
+                </div>
+                <div class="project-footer">
+                    <a href="https://github.com/MARIMON158/Desafio-Cambio" target="_blank" class="github-link">Ver Código</a>
+                </div>
+            </div>
+            </div>
+
+            <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumb-container">
+                    <img src="assets/img/mini-game-Mario.png" class="project-thumb">
+                </div>
+                <div class="project-footer">
+                    <a href="https://github.com/MARIMON158/Minigame-super-mario" target="_blank" class="github-link">Ver Código</a>
+                </div>
+            </div>
+            </div>
+    </div>
+
+</div> <div id="janela-contato" class="janela">
+    <div class="barra">
+        <span>Contato</span>
+        <div class="botoes">
+            <button onclick="minimizarJanela('janela-contato')">—</button>
+            <button onclick="maximizarJanela('janela-contato')">⬜</button>
+            <button onclick="fecharJanela('janela-contato')">✕</button>
+        </div>
+    </div>
+    <a href="https://wa.me/5571993247666" class="btn-whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span>Falar com o Dev</span>
+</a>
+    <div class="window-body contact-window">
+        <div class="contact-content">
+            </div>
+    </div>
+</div>
+
+<div id="janela-curriculo" class="janela">
+    <div class="barra">
+        <span>Currículo</span>
+        <div class="botoes">
+            <button onclick="minimizarJanela('janela-curriculo')">—</button>
+            <button onclick="maximizarJanela('janela-curriculo')">⬜</button>
+            <button onclick="fecharJanela('janela-curriculo')">✕</button>
+        </div>
+    </div>
+    <div class="conteudo" style="text-align: center; padding: 20px;">
+        <a href="assets/img/Curriculo-dev-Mari.pdf" download class="btn-download">Baixar Currículo</a>
+    </div>
+</div>
+
+<div id="janela-tecnologias" class="janela">
+  <div class="barra">
+    <span>Tecnologias</span>
+    <div class="botoes">
+      <button onclick="minimizarJanela('janela-tecnologias')">—</button>
+      <button onclick="maximizarJanela('janela-tecnologias')">⬜</button>
+      <button onclick="fecharJanela('janela-tecnologias')">✕</button>
+    </div>
+  </div>
+  <div class="conteudo">
+    <div class="tech-grid">
+  <div class="tech-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+  <div class="tech-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+  <div class="tech-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+  <div class="tech-item"><i class="devicon-react-original colored"></i><span>React</span></div>
+  <div class="tech-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+  <div class="tech-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+  <div class="tech-item"><i class="fas fa-robot" style="color:#ff6d5a"></i><span>n8n</span></div>
+</div>
+  </div>
+</div>
+
+<div id="barra-tarefas"></div>

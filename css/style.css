@@ -1,0 +1,862 @@
+* {
+  margin: 0;
+  padding: 0; /* Adicione isso para limpar espaços internos */
+  box-sizing: border-box; /* Garante que tamanhos não quebrem o layout */
+}
+/* BODY */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #99c8fd;
+}
+
+/* 1. Trava o site inteiro no começo */
+body.travado {
+  overflow: hidden; /* Isso desativa a rodinha do mouse e a barra lateral */
+  height: 100vh;    /* Garante que a tela não passe do tamanho do monitor */
+}
+
+/* 2. Deixe o deslize suave preparado */
+html {
+  scroll-behavior: smooth;
+}
+.hero {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  gap: 15px;
+
+  
+  width: 100%;       
+  overflow: hidden;
+}
+
+.nome {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+  
+.btn {
+  background: #ffb6c1; /* rosa */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1); /* cresce ao passar o mouse */
+  background: #ff9bb0;
+}
+/* AVATAR */
+.avatar {
+  width: clamp(100px, 25vw, 240px);
+  height: clamp(100px, 25vw, 240px);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(121, 141, 207, 0.6);
+  z-index: 10; 
+} 
+
+/* NUVENS GERAIS */
+.nuvem {
+  position: absolute;
+  width: 100%;
+  pointer-events: none; /* não atrapalha clique */
+}
+
+/* ☁️ NUVEM GRANDE (embaixo) */
+.n1 {
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  z-index: -1;
+  height: 1000px;
+  width: auto;
+}
+
+@keyframes flutuar {
+  from {
+    
+    transform: translateX(15px) translateY(0px);
+  }
+
+ to {
+  
+    transform: translateX(15px) translateY(-15px);
+  }
+}
+
+.cat {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  
+  width: clamp(120px, 30vw, 400px);
+  pointer-events: none;
+  
+  /* Ativa a animação */
+ animation: flutuar 3s ease-in-out infinite alternate;
+  z-index: 2; 
+}
+
+
+/* ========================================= */
+/* ⭐ ESTRELAS REAIS ROSA CLARO ⭐          */
+/* ========================================= */
+
+
+.estrela {
+  position: absolute;
+  background-color: #ffc0cb; 
+
+  aspect-ratio: 1; 
+
+
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+
+  
+  pointer-events: none;     
+  z-index: 1;               
+  
+  /* Ativa a animação de piscar */
+  animation: piscar infinite ease-in-out;
+  opacity: 0;               
+}
+
+/* 2. Animação de Piscar */
+@keyframes piscar {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3. "Aleatoriedade" Manual usando classes específicas (mais organizado) */
+/* Aqui definimos posição (top/left), tamanho (width) e tempo da animação */
+
+/* Pequenas */
+.star-1 { top: 10%; left: 10%; width: 10px; animation-duration: 2s; animation-delay: 0.1s; }
+.star-2 { top: 15%; left: 80%; width: 12px; animation-duration: 3s; animation-delay: 0.5s; }
+.star-3 { top: 30%; left: 25%; width: 10px; animation-duration: 2.5s; animation-delay: 1s; }
+.star-4 { top: 50%; left: 5%; width: 12px; animation-duration: 4s; animation-delay: 0.2s; }
+.star-5 { top: 70%; left: 15%; width: 10px; animation-duration: 2s; animation-delay: 1.5s; }
+
+/* Médias */
+.star-6 { top: 40%; left: 70%; width: 15px; animation-duration: 3.5s; animation-delay: 0.8s; }
+.star-7 { top: 80%; left: 85%; width: 18px; animation-duration: 2.8s; animation-delay: 0.3s; }
+.star-8 { top: 5%; left: 50%; width: 15px; animation-duration: 3s; animation-delay: 1.2s; }
+.star-9 { top: 60%; left: 90%; width: 18px; animation-duration: 2.2s; animation-delay: 0.6s; }
+.star-10 { top: 25%; left: 95%; width: 15px; animation-duration: 4.5s; animation-delay: 1.8s; }
+
+/* Grandes (para destaque) */
+.star-11 { top: 75%; left: 40%; width: 22px; animation-duration: 2s; animation-delay: 0.9s; }
+.star-12 { top: 90%; left: 10%; width: 25px; animation-duration: 3.2s; animation-delay: 0.4s; }
+.star-13 { top: 45%; left: 30%; width: 20px; animation-duration: 2.5s; animation-delay: 0.1s; }
+.star-14 { top: 18%; left: 60%; width: 22px; animation-duration: 3s; animation-delay: 0.7s; }
+.star-15 { top: 65%; left: 2%; width: 20px; animation-duration: 3.8s; animation-delay: 1.1s; }
+.star-16 { top: 35%; left: 55%; width: 18px; animation-duration: 2s; animation-delay: 0.4s; }
+.star-17 { top: 55%; left: 75%; width: 25px; animation-duration: 4s; animation-delay: 1.3s; }
+.star-18 { top: 85%; left: 50%; width: 20px; animation-duration: 3s; animation-delay: 0.6s; }
+
+
+/* ... (mantenha todo o seu CSS anterior aqui) ... */
+
+/* ========================================= */
+/* ⭐ ESTRELAS REDONDAS BRANCAS QUE BRILHAM ⭐ */
+/* ========================================= */
+
+/* 1. Estilo Base da Estrela (Bolinha Branca) */
+.estrela-redonda {
+  position: absolute;
+  background-color: #ffffff; /* Branca */
+  border-radius: 50%;       /* Faz ficar perfeitamente redonda */
+  
+  pointer-events: none;     /* Não atrapalha cliques */
+  z-index: 1;               /* Fica atrás dos elementos principais */
+  
+  /* Ativa a animação de brilho contínuo */
+  animation: brilhoContinuo infinite ease-in-out alternate;
+  
+  /* Brilho inicial suave */
+  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* 2. Animação de Brilho Contínuo (Pulsação) */
+/* Ela aumenta o brilho e cresce levemente, sem nunca sumir */
+@keyframes brilhoContinuo {
+  0% {
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+    opacity: 0.7; /* Começa um pouco mais apagada */
+  }
+  100% {
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 1); /* Brilho intenso */
+    transform: scale(1.2); /* Cresce um pouquinho */
+    opacity: 1; /* Brilho total */
+  }
+}
+
+/* 3. "Aleatoriedade" Manual usando nth-child */
+/* Definimos Posição (top/left), Tamanho (width/height) e Tempo para cada uma */
+
+/* Pequenas (4px - 6px) */
+.estrela-redonda:nth-child(1) { top: 8%; left: 12%; width: 4px; height: 4px; animation-duration: 3.2s; }
+.estrela-redonda:nth-child(2) { top: 92%; left: 88%; width: 5px; height: 5px; animation-duration: 2s; animation-delay: 0.8s; }
+.estrela-redonda:nth-child(3) { top: 22%; left: 82%; width: 4px; height: 4px; animation-duration: 4s; animation-delay: 0.3s; }
+.estrela-redonda:nth-child(4) { top: 78%; left: 18%; width: 6px; height: 6px; animation-duration: 2.5s; }
+.estrela-redonda:nth-child(5) { top: 48%; left: 95%; width: 5px; height: 5px; animation-duration: 3s; animation-delay: 1.2s; }
+.estrela-redonda:nth-child(6) { top: 12%; left: 45%; width: 4px; height: 4px; animation-duration: 2.2s; }
+
+/* Médias (8px - 10px) */
+.estrela-redonda:nth-child(7) { top: 65%; left: 12%; width: 8px; height: 8px; animation-duration: 3s; }
+.estrela-redonda:nth-child(8) { top: 15%; left: 85%; width: 10px; height: 10px; animation-duration: 4.5s; animation-delay: 0.5s; }
+.estrela-redonda:nth-child(9) { top: 88%; left: 42%; width: 8px; height: 8px; animation-duration: 2.8s; }
+.estrela-redonda:nth-child(10) { top: 5%; left: 25%; width: 10px; height: 10px; animation-duration: 3.5s; animation-delay: 0.2s; }
+.estrela-redonda:nth-child(11) { top: 35%; left: 92%; width: 8px; height: 8px; animation-duration: 2s; }
+.estrela-redonda:nth-child(12) { top: 72%; left: 80%; width: 10px; height: 10px; animation-duration: 3.2s; animation-delay: 0.9s; }
+.estrela-redonda:nth-child(13) { top: 25%; left: 5%; width: 8px; height: 8px; animation-duration: 2.2s; }
+.estrela-redonda:nth-child(14) { top: 55%; left: 15%; width: 9px; height: 9px; animation-duration: 4s; }
+
+/* Grandes (12px - 15px) */
+.estrela-redonda:nth-child(15) { top: 10%; left: 90%; width: 12px; height: 12px; animation-duration: 3s; animation-delay: 1.1s; }
+.estrela-redonda:nth-child(16) { top: 85%; left: 5%; width: 14px; height: 14px; animation-duration: 3.8s; }
+.estrela-redonda:nth-child(17) { top: 5%; left: 75%; width: 12px; height: 12px; animation-duration: 2.5s; animation-delay: 0.6s; }
+.estrela-redonda:nth-child(18) { top: 95%; left: 25%; width: 15px; height: 15px; animation-duration: 3s; }
+.estrela-redonda:nth-child(19) { top: 40%; left: 88%; width: 12px; height: 12px; animation-duration: 2s; animation-delay: 1.3s; }
+.estrela-redonda:nth-child(20) { top: 20%; left: 30%; width: 13px; height: 13px; animation-duration: 4.2s; }
+
+/* ========================================= */
+/* 🖥️ SEGUNDA TELA (AQUI ESTAVA O PROBLEMA)  */
+/* ========================================= */
+.secao-portfolio {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #99c8fd;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BARRA BRANCA DO TOPO - AGORA ALINHADA */
+.barra-sistema {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.98);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; /* ALINHA TUDO VERTICALMENTE */
+  padding: 0 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.barra-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titulo-sistema {
+  color: #798dcf;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ALA DIREITA - ONDE ESTÁ A HORA E O X */
+.barra-direita {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#volume-slider {
+  width: 50px;
+  cursor: pointer;
+  accent-color: #ffb6c1; /* Deixa o slider rosa */
+}
+
+.hora-sistema {
+  color: #555;
+  font-size: 13px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.btn-fechar-sistema {
+  width: 20px;
+  height: 20px;
+  background: #ffb6c1;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* ESTRELAS DA SEGUNDA TELA */
+.star-micro, .star-tri {
+  position: absolute;
+  background-color: white;
+  animation: piscar-suave 3s infinite ease-in-out;
+}
+
+.star-micro {
+  width: 4px; height: 4px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star-tri {
+  width: 6px; height: 6px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes piscar-suave {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Posições (Ajuste conforme queira) */
+.m1 { top: 15%; left: 10%; } .m2 { top: 45%; left: 85%; } .m3 { top: 75%; left: 20%; }
+.t1 { top: 25%; left: 55%; } .t2 { top: 65%; left: 70%; } .t3 { top: 85%; left: 45%; }
+
+
+/* ========================================= */
+/* 🖥️ ÁREA DO DESKTOP (ÍCONES)               */
+/* ========================================= */
+
+/* Container principal que segura todos os ícones do desktop */
+.area-desktop {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 120px); /* Aumentei um tiquinho a largura da coluna também */
+  gap: 55px 25px; /* 55px de espaço entre um ícone e o de baixo */
+  z-index: 50;
+}
+
+/* Garante que os itens não fiquem colados */
+.item-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+/* Efeito ao passar o mouse: o adesivo dá uma leve subidinha */
+.item-desktop:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.icone-sticker {
+  width: 80px !important; /* Teste com 80px para ver se ele encolhe */
+  height: auto !important;
+  display: block; /* Garante que ele se comporte como um bloco */
+  
+  /* Mantendo o efeito de adesivo que você amou */
+  filter: drop-shadow(2px 2px 0px #fff) 
+          drop-shadow(-2px -2px 0px #fff)
+          drop-shadow(2px -2px 0px #fff)
+          drop-shadow(-2px 2px 0px #fff)
+          drop-shadow(4px 8px 10px rgba(0,0,0,0.2));
+}
+
+.nome-icone {
+  color: white;
+  font-size: 14px; /* Aumentei um pouco o texto também */
+  font-weight: bold;
+  text-align: center;
+  text-transform: lowercase; /* Estilo mais clean */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.janela {
+  display: none;
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 420px;
+  max-width: 95%; /* 👈 ESSENCIAL */
+  height: 55vh;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  z-index: 9999;
+
+  overflow: hidden;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+/* quando ativa */
+.janela.ativa {
+  display: block;
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* 🧱 BARRA */
+.barra {
+  background: #f1f1f1;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #ddd;
+}
+
+/* BOTÕES */
+.botoes {
+  display: flex;
+  gap: 8px;
+}
+
+.botoes button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #e0e0e0;
+}
+
+.botoes button:hover {
+  background: #d0d0d0;
+}
+
+/* 📄 CONTEÚDO */
+.conteudo {
+  padding: 15px;
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
+/* ⬜ MAXIMIZADA */
+.janela.maximizada {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  width: 100vw;
+  height: 100vh;
+
+  border-radius: 0;
+  transform: none;
+}
+
+.botao-janela img {
+  width: 18px;
+  height: 18px;
+}
+
+
+#barra-tarefas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 50px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+
+  z-index: 99999;
+}
+
+/* botões das janelas */
+.botao-janela {
+  background: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.botao-janela:hover {
+  background: #f0f0f0;
+}
+
+
+.janela.ativa {
+  display: block;
+}
+
+.janela.minimizada {
+  display: none;
+}
+
+
+#barra-tarefas {
+  display: none;
+}
+
+
+body.sistema-ativo #barra-tarefas {
+  display: flex;
+}
+
+/* animação ao minimizar */
+@keyframes minimizarAnim {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+}
+
+/* classe que ativa animação */
+.janela.animando-minimizar {
+  animation: minimizarAnim 0.4s ease forwards;
+}
+
+/* SNAP ESQUERDA */
+.janela.snap-esquerda {
+  top: 0 !important;
+  left: 0 !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  transform: none !important;
+  border-radius: 0;
+}
+
+/* SNAP DIREITA */
+.janela.snap-direita {
+  top: 0 !important;
+  left: 50% !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  transform: none !important;
+  border-radius: 0;
+}
+
+/* Organiza os projetos em grade */
+.projects-grid {
+    display: grid;
+    /* Define o tamanho dos cards. Eles terão no mínimo 180px e se ajustam ao espaço */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* O "quadradinho" do projeto */
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Container da imagem - Aqui controlamos o tamanho "agradável" */
+.project-thumb-container {
+    width: 100%;
+    height: 120px; /* Altura fixa para manter o padrão */
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.project-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+}
+
+/* Rodapé onde fica o link */
+.project-footer {
+    padding: 12px;
+    text-align: center;
+}
+
+.github-link {
+    text-decoration: none;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.github-link i {
+    font-size: 1.2rem;
+}
+
+.github-link:hover {
+    color: #7b2ff7; /* Cor de destaque ao passar o mouse */
+}
+
+
+/* Container principal da janela de contato */
+.contact-window {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    padding: 30px;           /* Afasta o conteúdo de todas as bordas */
+    height: 100%;            /* Garante que ocupe a altura da janela */
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;               /* Espaço entre um botão e outro */
+    width: 100%;
+    max-width: 280px;        /* Limita a largura para não ficar gigante */
+}
+
+/* Estilo de cada "botão" de contato */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;     /* Cor de fundo leve */
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    text-decoration: none;   /* Remove o sublinhado azul */
+    color: #333;             /* Cor do texto */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.contact-item:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: #7b2ff7;   /* Cor roxa para combinar com seu OS */
+}
+
+/* Ícones */
+.contact-item i {
+    font-size: 1.5rem;
+    color: #7b2ff7;          /* Cor dos ícones */
+}
+
+/* Organização do texto dentro do botão */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info strong {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.contact-info span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.btn-download {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #3b82f6; /* Azul sólido para destaque */
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download:hover {
+  background-color: #2563eb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-download:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.container-centro {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  background: #f0f2f5; /* Um fundo leve para o efeito aparecer */
+}
+
+.btn-glass {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 25px 10px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* O efeito de vidro */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.icon-wrapper {
+  width: 45px;
+  height: 45px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-glass:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+}
+
+
+
+
+
+
+
+/* ========================================= */
+/* 📱 RESPONSIVO FINAL (CORRIGIDO)           */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nome {
+    font-size: 1.3rem;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* NUVEM */
+  .nuvem.n1 {
+    width: 160%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+  }
+
+  /* GATO */
+  .cat {
+    width: 80px;
+    top: auto;
+    bottom: 90px;
+    left: auto;
+    right: 15%;
+  }
+
+  /* DESKTOP */
+  .area-desktop {
+  position: absolute; /* mantém layout original */
+  top: 60px;
+  left: 10px;
+
+  transform: scale(0.85); /* 👈 só diminui no celular */
+  transform-origin: top left;
+}
+
+  /* JANELAS */
+  .janela {
+    width: 95%;
+    left: 50%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
+    height: auto;
+    max-height: 80vh;
+  }
+
+  /* BARRA */
+  .barra-sistema {
+    padding: 0 10px;
+  }
+
+  .titulo-sistema {
+    display: none;
+  }
+
+  .volume-container {
+    display: none;
+  }
+
+  /* PROJETOS */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* BOTÃO */
+  .btn-glass {
+    width: 90%;
+    justify-content: center;
+  }
+}
